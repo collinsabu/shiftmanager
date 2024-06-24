@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { useRouter } from "next/navigation";
+import Link from "next/link";
 
 export default function RegisterForm() {
   const router = useRouter();
@@ -52,7 +53,7 @@ export default function RegisterForm() {
 
   return (
     <form className="flex flex-col w-[275px]" onSubmit={handleSubmit}>
-      <div className="mb-5">
+      <div className="mb-3">
         <label className="text-white">Full Name</label>
         <input
           type="text"
@@ -67,7 +68,7 @@ export default function RegisterForm() {
 
 
 
-      <div className="mb-5">
+      <div className="mb-3">
         <label className="text-white">Hourly Rate</label>
         <input
           type="number"
@@ -80,7 +81,7 @@ export default function RegisterForm() {
         />
       </div>
 
-      <div className="mb-5">
+      <div className="mb-3">
         <label className="text-white">Monthly Target</label>
         <input
           type="number"
@@ -93,7 +94,7 @@ export default function RegisterForm() {
         />
       </div>
 
-      <div className="mb-5">
+      <div className="mb-3">
         <label className="text-white">Email</label>
         <input
           type="email"
@@ -106,7 +107,7 @@ export default function RegisterForm() {
         />
       </div>
 
-      <div className="mb-5">
+      <div className="mb-3">
         <label className="text-white">Password</label>
         <input
           type="password"
@@ -119,9 +120,12 @@ export default function RegisterForm() {
         />
       </div>
 
-      <button className="text-white font-semibold border-4 w-[55%] py-1 rounded-[30px] text-center mx-auto mt-4 mb-14 drop-shadow-shadow bg-blue_1 cursor-pointer">
+      <button className="text-white font-semibold border-4 w-[55%] py-1 rounded-[30px] text-center mx-auto mt-4 mb-7 drop-shadow-shadow bg-blue_1 cursor-pointer">
         Submit
       </button>
+      <p className="text-white text-[14px] mb-4 text-center">
+        Already have an account? <Link href="/auth/login" className="text-blue-400 underline">Login</Link>
+      </p>
     </form>
   );
 }
