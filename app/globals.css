@@ -1,0 +1,46 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.background {
+   background-image: url('/bg.jpg');
+   background-repeat: no-repeat;
+   background-size: cover;
+   background-position: left ;
+ }
+
+ .element {
+   background-color: rgba(255, 255, 255, 0.3);
+   backdrop-filter: blur(25px) 
+ }
+
+ input {
+   @apply my-2 rounded-[30px] h-9 pl-2
+ }
+ 
+ input::placeholder {
+   @apply font-normal text-sm  text-gray-600
+ }
+
+ label {
+  @apply block
+ }
+
+ /* CalendarStyles.css */
+
+.react-calendar__tile--active {
+  background: #ff0000 !important;
+  color: #ffffff !important;
+}
+
+.event-date {
+  background: #ff0000;
+  color: #ffffff;
+  border-radius: 50%;
+}
+
+.react-calendar__tile--now {
+  background: #067521;
+}
+
+

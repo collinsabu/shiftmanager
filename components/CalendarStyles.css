@@ -1,0 +1,51 @@
+/* CalendarStyles.css */
+.react-calendar {
+   background-color: white;
+   border-radius: 0.5rem;
+   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+   padding: 1rem;
+ }
+ 
+ .react-calendar__navigation {
+   display: flex;
+   justify-content: space-between;
+   align-items: center;
+   margin-bottom: 1rem;
+   color: rgb(172, 1, 1);
+   font-weight: bold;
+ }
+ 
+ .react-calendar__tile {
+   max-width: 100%;
+   padding: 0.75rem;
+   text-align: center;
+   border-radius: 0.25rem;
+   transition: background-color 0.2s ease;
+ }
+ 
+ .react-calendar__tile--now {
+   background: #067521;
+   color: white;
+ }
+ 
+ .react-calendar__tile--active {
+   color: rgb(255, 255, 255);
+   background: rgb(145, 0, 0);
+ }
+ 
+ .react-calendar__tile:enabled:hover,
+ .react-calendar__tile:enabled:focus {
+   background: #bee3f8;
+ }
+ 
+ /* Add background color to the weekdays */
+
+ 
+ .react-calendar__month-view__weekdays__weekday {
+   color: #067521;
+   text-transform: uppercase;
+   font-weight: bold;
+ }
+
+ 
+ 
