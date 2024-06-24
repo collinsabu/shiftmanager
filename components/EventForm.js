@@ -48,7 +48,7 @@ const EventForm = ({ selectedDate, closeForm }) => {
       });
 
       if (!response.ok) {
-        throw new Error("Failed to add event");
+        throw new Error("Failed to add shift");
       }
 
       // Reset form and set success message
@@ -56,7 +56,7 @@ const EventForm = ({ selectedDate, closeForm }) => {
       setDescription("");
       setUserEmail("");
       setError("");
-      setSuccessMessage("Event added successfully!");
+      setSuccessMessage("Shift added successfully!");
 
       // Clear the success message after a delay
       setTimeout(() => {
