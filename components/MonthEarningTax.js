@@ -19,6 +19,10 @@ const fetchClockInData = async () => {
 };
 
 const TAX_RATE = 0.2; // Assuming a 20% tax rate
+const NI_RATE_LOW = 0.12; // 12% NI for earnings within the threshold
+const NI_RATE_HIGH = 0.02; // 2% NI for earnings above the threshold
+const NI_PRIMARY_THRESHOLD = 1048; // Monthly Primary Threshold for 2023-24 (change as needed)
+const NI_UPPER_EARNINGS_LIMIT = 4189; // Monthly Upper Earnings Limit for 2023-24 (change as needed)
 
 export default function MonthlyEarningTax() {
   const [monthlyTotalEarnings, setMonthlyTotalEarnings] = useState(0);
@@ -47,10 +51,22 @@ export default function MonthlyEarningTax() {
           }
         });
 
-        // Deduct tax
-        const earningsAfterTax = totalEarnings * (1 - TAX_RATE);
+        // Calculate NI contributions
+        let niContributions = 0;
+        if (totalEarnings > NI_PRIMARY_THRESHOLD) {
+          if (totalEarnings <= NI_UPPER_EARNINGS_LIMIT) {
+            niContributions = (totalEarnings - NI_PRIMARY_THRESHOLD) * NI_RATE_LOW;
+          } else {
+            niContributions = (NI_UPPER_EARNINGS_LIMIT - NI_PRIMARY_THRESHOLD) * NI_RATE_LOW +
+                              (totalEarnings - NI_UPPER_EARNINGS_LIMIT) * NI_RATE_HIGH;
+          }
+        }
 
-        setMonthlyTotalEarnings(earningsAfterTax); // Updating the total earnings variable
+        // Deduct tax and NI
+        const earningsAfterTax = totalEarnings * (1 - TAX_RATE);
+        const earningsAfterTaxAndNI = earningsAfterTax - niContributions;
+
+        setMonthlyTotalEarnings(earningsAfterTaxAndNI); // Updating the total earnings variable
       }
     }
 
